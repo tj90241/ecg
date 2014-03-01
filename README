@@ -22,7 +22,7 @@ simply `#include <ecg/ecg.h>` and you're good to go.
 
 You must call ecg_global_init() once prior to using any ecg_* function, and you
 must call ecg_global_cleanup() after you're finished with ecg and have released
-any buffers allocated with ecg_buf_alloc().
+any buffers allocated with ecg_alloc_buf().
 
 Architecture:
 -------------
