@@ -26,12 +26,12 @@ any buffers allocated with ecg_buf_alloc().
 
 Architecture:
 -------------
-For a list of instructions and their operations, view ecg/backend.h. In general,
-ECG operations take 1-3 operand values. The operands are either target registers
-or immediates, as specified in the declarations.
+For a list of instructions and their operations, view ecg/backend.h. In
+general, ECG operations take 1-3 operand values. The operands are either target
+registers or immediates, as specified in the declarations.
 
 In general, you should not assume that ECG will map instructions to your native
-architecture in a 1:1 ratio. This is especially true if you use immediate values
-in your instructions that are greater than 12/16-bits in length when sign-
-extended.
+architecture in a 1:1 ratio. This is especially true if you use immediate
+values in your instructions that are greater than 12/16-bits in length when
+sign-extended.
 
