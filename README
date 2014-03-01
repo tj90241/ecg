@@ -1,0 +1,37 @@
+ECG: Emulator Code Generator
+Copyright (C) 2014, Tyler J. Stachecki.
+
+Introduction:
+-------------
+ECG is a library capable of dynamically generating native machine code for
+your architecture (on the fly!) through a well-defined, clear C API. It also
+provides facilities to allocate executable buffers and other code-generation
+related operations.
+
+ECG essentially exports a idealistic machine language that maps well to most,
+if not all, major architectures on the market. In doing so, it loses some of
+the advantages of that ISAs provide as far as peephole optimizations go. On
+the other hand, it can generate machine code for any (supported) backend via
+an elegant API.
+
+Usage;
+------
+To use ECG, configure the project with CMake and build it. An install target
+is included that will install relevant header files and libraries. Next, simply
+simply `#include <ecg/ecg.h>` and you're good to go.
+
+You must call ecg_global_init() once prior to using any ecg_* function, and you
+must call ecg_global_cleanup() after you're finished with ecg and have released
+any buffers allocated with ecg_buf_alloc().
+
+Architecture:
+-------------
+For a list of instructions and their operations, view ecg/backend.h. In general,
+ECG operations take 1-3 operand values. The operands are either target registers
+or immediates, as specified in the declarations.
+
+In general, you should not assume that ECG will map instructions to your native
+architecture in a 1:1 ratio. This is especially true if you use immediate values
+in your instructions that are greater than 12/16-bits in length when sign-
+extended.
+
